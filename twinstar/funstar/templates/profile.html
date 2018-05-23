@@ -9,7 +9,7 @@
         <img src="{{profile.avatar.url}}" alt="" style="height:150px;width:150px; border-radius:50%; display:inline;">
         <p class="ml-2" style="display:inline; white-space:nowrap; font-size:25px;"><strong>{{profile.user}}</strong></p>
 
-
+        <a href="{% url 'edit_profile' %}"><input type="button" class="btn btn-outline-info btn-sm" value="Edit Profile" ></a>
 
         <hr>
         <p class="ml-2" style="display:inline; white-space:nowrap; font-size:25px;">{{profile.bio}}</p>
