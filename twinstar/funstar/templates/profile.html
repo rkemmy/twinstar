@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+ {% block content %}
+<div class="container mt-2 ">
+  <div class="row">
+    <div class="col- mx-auto p-5 mt-2" style="background-color:#ffffff; border: 1px solid #e6e6e6;">
+      {% for profile in profiles %}
+      <div class="profile p-4">
+        <img src="{{profile.avatar.url}}" alt="" style="height:150px;width:150px; border-radius:50%; display:inline;">
+        <p class="ml-2" style="display:inline; white-space:nowrap; font-size:25px;"><strong>{{profile.user}}</strong></p>
+
+
+
+        <hr>
+        <p class="ml-2" style="display:inline; white-space:nowrap; font-size:25px;">{{profile.bio}}</p>
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-5">
+  <div class="row">
+    {% for pic in images %}
+    <div class="col-4 m-2">
+      <img src="{{image.image.url}}" alt="" class="img-fluid">
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

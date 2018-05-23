@@ -11,8 +11,8 @@ class Profile(models.Model):
     email = forms.EmailField()
     phone_number = forms.CharField(max_length=15)
 
-    def __str__(self):
-        return self.user
+
+
 
 
 class Image(models.Model):
@@ -23,6 +23,11 @@ class Image(models.Model):
 
     def __str__(self):
         return self.name
+
+    @classmethod
+    def get_all(cls):
+        photo = cls.objects.all()
+        return photo
 
     class Meta:
         ordering = ['name']
