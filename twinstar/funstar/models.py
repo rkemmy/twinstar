@@ -1,12 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django import forms
 
 # Create your models here.
 class Profile(models.Model):
     avatar = models.ImageField(upload_to='avatar/')
     bio = models.CharField(max_length = 256)
     user = models. ForeignKey(User, on_delete=models.CASCADE)
-    website = forms.URLFiels(initial='http://')
+    website = forms.URLField(initial='http://')
     email = forms.EmailField()
     phone_number = forms.CharField(max_length=15)
 
