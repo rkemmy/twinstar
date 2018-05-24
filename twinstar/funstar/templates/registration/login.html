@@ -1,40 +1,31 @@
-{% extends "registration/base.html" %}
-{% load static %}
+{%extends "registration/base.html"%} {% load bootstrap4 %} 
+{% load static%}
 {% block content %}
-{% load bootstrap4 %}
+<div class="container-fluid login" style="background-image:url('/static/img/bg2.jpeg');height: 100vh; background-position: center; background-size: cover; position: center; ">
+    <div class="row  ">
 
-<div class="container-fluid bg">
-  <div class="row">
-    <div class="col-md-4 col-sm-4 col-xs-12"></div>
-    <div class="col-md-4 col-sm-4 col-xs-12">
-        {% if form.errors %}
-            <p> Password or Username is incorrect </p>
-        {% endif %}
-        <form class="form-container" action="/acccounts/register/" method="post">
-            <h1>Login</h1>
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            {% if form.errors %}
+                <p> Password or Username is incorrect </p>
+            {% endif %}
+        </div>
+        <div class=" col-md-4 box" style="margin-top: -5%; position:absolute; left: 50%; transform: translate(-50%,50%);width: 400px; height: 350px; background: rgba(0,0,0,0.5); box-sizing: border-box; box-shadow: 0 15px 25px rgba(0,0,0,0.5)" >
+                <div class="card-body" >
+                    <h3 class="card-title text-center" style="font-family: 'Skranji', cursive; color: white;">Login</h3><hr style="border-color: white">
+                    <form action="/accounts/login/" method="post">
+                        {% csrf_token %} {% bootstrap_form form layout='inline'%}
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-outline-info"  value="Login">
+                        </div>
+            
+                        <input type="hidden" name="next" value="{{next}}">
+                    </form>
+                    <div class="card-footer">
+                        <p>Don't have an account yet? <a href="/accounts/register/">Sign up</a></p>
+                    </div>
+                </div>
+                
             </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Remember me</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-        </form>
-
-    </div>
-    <div class="col-md-4 col-sm-4 col-xs-12"></div>
-    <input type="hidden" name="next" value="{{next}}">
-
-  </div>
-
+        </div>
 </div>
 
 {% endblock %}

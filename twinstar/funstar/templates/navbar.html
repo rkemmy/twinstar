@@ -35,12 +35,19 @@
         </div>
       </li>
     </ul>
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown">{{profile.user}}</li>
+    <ul class="navbar-nav mr-auto" >
+      <li class="nav-item active">
+        <a href=""><i class="far fa-compass fa-2x"></i></a>
+      </li>
+      <a href=""><li class="nav-item active">
+        <i class="far fa-heart fa-2x"></i></a>
+      </li>
+      <a href="{% url 'profile'%}"><li class="nav-item active">
+        <i class="far fa-user fa-2x"></i></a>
+      </li>
 
     </ul>
 
-    
 
   </div>
 </nav>
