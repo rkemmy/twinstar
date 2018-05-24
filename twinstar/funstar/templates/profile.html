@@ -5,6 +5,7 @@
   <div class="row">
     <div class="col- mx-auto p-5 mt-2" style="background-color:#ffffff; border: 1px solid #e6e6e6;">
       {% for profile in profiles %}
+      
       <div class="profile p-4">
         <img src="{{profile.avatar.url}}" alt="" style="height:150px;width:150px; border-radius:50%; display:inline;">
         <p class="ml-2" style="display:inline; white-space:nowrap; font-size:25px;"><strong>{{profile.user}}</strong></p>
@@ -13,6 +14,12 @@
 
         <hr>
         <p class="ml-2" style="display:inline; white-space:nowrap; font-size:25px;">{{profile.bio}}</p>
+      
+      <div class="profile p-4">
+        <img src="/static/img/default.jpeg" alt="">
+        <a href="{% url 'edit_profile' %}"><input type="button" class="btn btn-outline-info btn-sm" value="Edit Profile" ></a>
+      </div>
+
       {% endfor %}
       </div>
     </div>
