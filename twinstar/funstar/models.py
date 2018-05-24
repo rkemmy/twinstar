@@ -6,7 +6,7 @@ from django import forms
 class Profile(models.Model):
     avatar = models.ImageField(upload_to='avatar/')
     bio = models.CharField(max_length = 256)
-    user = models. ForeignKey(User, on_delete=models.CASCADE)
+    user = models. OneToOneField(User, on_delete=models.CASCADE)
     website = forms.URLField(initial='http://')
     email = forms.EmailField()
     phone_number = forms.CharField(max_length=15)
