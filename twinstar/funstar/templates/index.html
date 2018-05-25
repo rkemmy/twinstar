@@ -4,11 +4,12 @@
 {% block content%}
 
 <div class="container">
+    <div class="box" style="margin-bottom: 20px; margin-top: 20px position: fixed;">
+        <a href="{%url 'new_post' %}" class="btn btn-primary"> New Post</a>
+      </div>
+
 
       {% for image_item in pics %}
-      <div class="box">
-
-      </div>
 
 
         <div class="justify-content-center col-xs-3 col-sm-3 col-md-3 col-lg-6" style="height: 500px;width: 500px; padding: 0px; margin: 0px; align-items: center">
