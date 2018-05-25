@@ -9,4 +9,4 @@ class ProfileForm(forms.ModelForm):
 class ImageUpload(forms.ModelForm):
     class Meta:
         model = Image
-        exclude = ['post_date', 'owner', 'profile']
+        exclude = ['post_date',]
