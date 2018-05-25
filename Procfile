@@ -1,1 +1,1 @@
-web:gunicorn twinstar.wsgi
+web: gunicorn twinstar.wsgi
