@@ -1,4 +1,4 @@
-# Hoody
+# Pixie
 
 Developer: Risper Kemunto
 
