@@ -18,8 +18,9 @@ class Profile(models.Model):
 class Image(models.Model):
     image = models.ImageField(upload_to='gallery/')
     name = models.CharField(max_length = 30)
-    owner = models. ForeignKey(User,on_delete=models.CASCADE)
-    profile = models.ForeignKey(Profile,on_delete=models.CASCADE)
+    owner = models. ForeignKey(User,on_delete=models.CASCADE,default=True)
+    profile = models.ForeignKey(Profile,on_delete=models.CASCADE,default=True)
+    caption = models.TextField(max_length = 200)
 
     def __str__(self):
         return self.name
@@ -37,8 +38,9 @@ class Comment(models.Model):
     post = models.ForeignKey(Image,on_delete=models.CASCADE)
     comment_content = models.TextField(blank=True)
 
+
     def __str__(self):
-        return self.user.username
+        return self.comment_content
 
     @classmethod
     def get_post_comments(cls,post_id):
