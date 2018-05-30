@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from .models import Image, Profile
-from .forms import ProfileForm, ImageUpload
+from .models import Image, Profile, Comment
+from .forms import ProfileForm, ImageUpload, CommentForm
 
 # Create your views here.
 @login_required(login_url='/accounts/login/')
@@ -53,4 +53,22 @@ def new_post(request):
     else:
         form = ImageUpload()
     return render(request, 'new_post.html', {"form": form})
+
+def comment(request, id):
+    current_user = request.user
+    image = Image.objects.get(pk=id)
+    text = Comment.objects.all()
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.writer = current_user
+            comment.save()
+            return redirect('index')
+    else:
+        form = CommentForm()
+
+    return render(request, 'comment.html', {'form':form, 'image':image, 'text':text})
+
 
