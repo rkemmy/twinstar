@@ -5,7 +5,8 @@
 
 <div class="container">
     <div class="box" style="margin-bottom: 20px; margin-top: 20px position: fixed;">
-        <a href="{%url 'new_post' %}" class="btn btn-primary"> New Post</a>
+        <a href="{%url 'new_post' %}" class="btn btn-outline-info"> New Post</a>
+        <a href="{%url 'edit_profile' %}" class="btn btn-outline-success"> Edit Profile</a>
       </div>
 
 
@@ -21,7 +22,7 @@
               <img class="card-img-top" src="{{image_item.image.url}}" alt="Card image cap" style="min-height: 100%; width=auto;"></a>
             </div>
             <div class="card-footer">
-              <p class="card-text">{{image_item.description}}</p>
+              <p class="card-text">{{image_item.caption}}</p>
               <button class="btn btn-outline-info">Comment</button>
             </div>
           </div>
